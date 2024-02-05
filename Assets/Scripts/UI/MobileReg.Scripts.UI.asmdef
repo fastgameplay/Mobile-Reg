@@ -1,7 +1,11 @@
 {
     "name": "MobileReg.Scripts.UI",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:8f549b15ba9b1b0429a8b16e5b367d39",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:3338230cd2468354797dbd8295785645"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
