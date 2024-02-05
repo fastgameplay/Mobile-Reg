@@ -14,18 +14,26 @@ namespace MobileReg.UI{
         [SerializeField] private SO_BasicTextData _negativeText;
         [SerializeField] private SO_BasicTextData _positiveText;
 
-        private void OnTextStateChange(){
-
+        
+        private void OnTextStateChange(bool state){
+            _currentText.gameObject.SetActive(true);
+            if(state){
+                _currentText.text = _positiveText.Text;
+                _currentText.color = _positiveText.TextColor;
+            } else {
+                _currentText.text = _negativeText.Text;
+                _currentText.color = _negativeText.TextColor;
+            }
         }
         private void OnTextCloseRequest(){
-
+            _currentText.gameObject.SetActive(false);
         }
         private void OnEnable() {
-            _onTextCloseRequest += OnTextStateChange;
+            _onTextStateChange += OnTextStateChange;
             _onTextCloseRequest += OnTextCloseRequest;
         }   
         private void OnDisable() {
-            _onTextCloseRequest -= OnTextStateChange;
+            _onTextStateChange -= OnTextStateChange;
             _onTextCloseRequest -= OnTextCloseRequest;
 
         }    
