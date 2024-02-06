@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb43b4cded77f240a147a6e3bdf06f9, type: 3}
-  m_Name: RegistrationInfoNegative
+  m_Script: {fileID: 11500000, guid: d846b328de24333448e46aa241185503, type: 3}
+  m_Name: On Number Registration Request
   m_EditorClassIdentifier: 
-  _text: 
-  _textColor: {r: 0, g: 0, b: 0, a: 0}

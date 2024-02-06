@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb43b4cded77f240a147a6e3bdf06f9, type: 3}
   m_Name: RegistrationInfoPositive
   m_EditorClassIdentifier: 
-  _text: 
-  _textColor: {r: 0, g: 0, b: 0, a: 0}
+  _text: Registration Complited
+  _textColor: {r: 0.2605164, g: 1, b: 0, a: 1}

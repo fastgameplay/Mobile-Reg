@@ -35,16 +35,18 @@ namespace MobileReg.Global
         }
 
         IEnumerator RegisterUser(string id, NumberInfo number) {
+            Debug.Log("Started Registration");
             var form = new WWWForm();
             form.AddField("ID", id);
             form.AddField("Country", number.CountryCode);
             form.AddField("Operator", number.OperatorCode);
             form.AddField("Number", number.FullNumber);
-
+            print(form);
             using (UnityWebRequest www = UnityWebRequest.Post(_registerURL.URL, form)) {
                 yield return www.SendWebRequest();
 
                 if (www.result == UnityWebRequest.Result.Success) {
+                    
                     ProcessRegisterResponse(www.downloadHandler.text);
                 }
                 else {
@@ -54,16 +56,21 @@ namespace MobileReg.Global
         }
 
         private void ProcessCheckResponse(string response, string id, NumberInfo number) {
+            Debug.Log(response);
             if (response.Equals("NoExist")) {
                 StartCoroutine(RegisterUser(id, number));
             }
             else {
+                Debug.Log("User Already Exists");
                 _onRegistrationCompleted.Invoke(false);
             }
         }
 
         private void ProcessRegisterResponse(string response) {
+            Debug.Log(response);
+
             bool registrationSuccess = response.Equals("RegOK");
+
             _onRegistrationCompleted.Invoke(registrationSuccess);
         }
 

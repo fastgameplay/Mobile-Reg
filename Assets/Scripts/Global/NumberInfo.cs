@@ -7,10 +7,10 @@ namespace MobileReg.Global
         public string OperatorCode {get; private set;}
         public string PhoneNumber  {get; private set;}
         public NumberInfo(string countryCode, string operatorCode, string phoneNumber){
-            CountryCode = countryCode;
+            CountryCode = $"+{countryCode}";
             OperatorCode = operatorCode;
             PhoneNumber = phoneNumber;
-            FullNumber = $"+{CountryCode}({OperatorCode}){PhoneNumber}";
+            FullNumber = $"{CountryCode}({OperatorCode}){PhoneNumber}";
         }
     }
 }

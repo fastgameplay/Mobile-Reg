@@ -4,5 +4,5 @@ namespace ScriptableEvents.SharpEvents
     using UnityEngine;
     
     [CreateAssetMenu(fileName = "NumberInfo Event", menuName = "Events/Custom/NumberInfo")]
-    public class SO_numberInfoEvent : SO_BaseEvent<NumberInfo> {}
+    public class SO_NumberInfoEvent : SO_BaseEvent<NumberInfo> {}
 }

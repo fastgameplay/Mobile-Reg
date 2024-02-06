@@ -28,17 +28,14 @@ namespace MobileReg.UI{
                 _currentText.text = _negativeText.Text;
                 _currentText.color = _negativeText.TextColor;
             }
+            _onTextCloseRequest.Invoke();
         }
-        private void OnTextCloseRequest(){
-            _currentText.enabled = false;
-        }
+
         private void OnEnable() {
             _onTextStateChange += OnTextStateChange;
-            _onTextCloseRequest += OnTextCloseRequest;
         }   
         private void OnDisable() {
             _onTextStateChange -= OnTextStateChange;
-            _onTextCloseRequest -= OnTextCloseRequest;
         }    
 
     }

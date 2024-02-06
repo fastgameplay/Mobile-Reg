@@ -65,11 +65,14 @@ namespace MobileReg.Global
             string id = "";
 
             // Извлекаем каждый второй символ из ключа "Key"
-            for (int i = 1; i < key.Length; i += 2)
+            for (int i = 0; i < key.Length; i += 2)
             {
                 id += key[i];
             }
-
+            Debug.Log(id);
+            
+            
+            Debug.Log(key);
             return id;
         }
 
