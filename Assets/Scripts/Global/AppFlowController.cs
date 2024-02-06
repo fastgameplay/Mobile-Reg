@@ -15,15 +15,14 @@ namespace MobileReg.Global
         [SerializeField] SO_BaseEvent<string,NumberInfo> _onRegistrationRequest;
         [SerializeField] SO_BaseEvent<bool> _onRegistrationComplited;
         [SerializeField] SO_BaseEvent<bool> _onRegistrationTextState;
-
-
-        string _savedID = "QrFBaDG1";
+        string _savedID ;
         NumberInfo _savedNumber;
         private void OnIDAcquired(string id){
-            // _savedID = id;
+            _savedID = id;
             _getIDTab.SetActive(false);
             _registrationTab.SetActive(true);
         }
+        
         private void OnNumberAcquired(NumberInfo number){
             _savedNumber = number;
             _onRegistrationRequest.Invoke(_savedID,number);
@@ -32,7 +31,6 @@ namespace MobileReg.Global
             _registrationTab.SetActive(false);
             _infoTab.SetActive(true);
             _onRegistrationTextState.Invoke(state);
-
         }
         private void OnEnable() {
             _onIDAcquired += OnIDAcquired;

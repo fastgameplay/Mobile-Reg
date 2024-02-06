@@ -61,7 +61,6 @@ namespace MobileReg.Global
                 StartCoroutine(RegisterUser(id, number));
             }
             else {
-                Debug.Log("User Already Exists");
                 _onRegistrationCompleted.Invoke(false);
             }
         }
