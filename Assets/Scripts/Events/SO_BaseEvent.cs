@@ -34,6 +34,7 @@ namespace ScriptableEvents
             Event?.Invoke();
         }
     }
+    
     public abstract class SO_BaseEvent<T> : ScriptableObject
     {
         public Action<T> Event {

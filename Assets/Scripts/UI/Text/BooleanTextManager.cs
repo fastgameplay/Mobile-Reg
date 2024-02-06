@@ -3,6 +3,7 @@ namespace MobileReg.UI{
     using ScriptableEvents;
     using MobileReg.Data;
     using TMPro;
+    [RequireComponent(typeof(TextMeshProUGUI))]
     public class BooleanTextManager : MonoBehaviour
     {
         [Header("Events")]
@@ -10,10 +11,13 @@ namespace MobileReg.UI{
         [SerializeField] private SO_BaseEvent _onTextCloseRequest;
         [Space(10)]
         [Header("Reference")] 
-        [SerializeField] private TextMeshProUGUI _currentText;
-        [SerializeField] private SO_BasicTextData _negativeText;
         [SerializeField] private SO_BasicTextData _positiveText;
+        [SerializeField] private SO_BasicTextData _negativeText;
+        private TextMeshProUGUI _currentText;
 
+        private void Awake() {
+            _currentText = GetComponent<TextMeshProUGUI>();
+        }
         
         private void OnTextStateChange(bool state){
             _currentText.gameObject.SetActive(true);
@@ -35,7 +39,6 @@ namespace MobileReg.UI{
         private void OnDisable() {
             _onTextStateChange -= OnTextStateChange;
             _onTextCloseRequest -= OnTextCloseRequest;
-
         }    
 
     }

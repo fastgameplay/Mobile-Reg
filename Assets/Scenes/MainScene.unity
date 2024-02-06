@@ -771,13 +771,15 @@ GameObject:
   - component: {fileID: 528712960}
   - component: {fileID: 528712962}
   - component: {fileID: 528712961}
+  - component: {fileID: 528712963}
+  - component: {fileID: 528712964}
   m_Layer: 5
   m_Name: ID Acquisition Information (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &528712960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -894,6 +896,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528712959}
   m_CullTransparentMesh: 1
+--- !u!114 &528712963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528712959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7690c788665e29c40877eafdce120420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onTextStateChange: {fileID: 11400000, guid: 195ceb36b50bc434e8a463586e7670f0, type: 2}
+  _onTextCloseRequest: {fileID: 11400000, guid: d47d02482ce7aa14793c1ccf53b4d1fd, type: 2}
+  _positiveText: {fileID: 11400000, guid: 6160483ef91fc7640a2cc03915341a69, type: 2}
+  _negativeText: {fileID: 11400000, guid: 0e55957fd9f21194e946944f5db85f54, type: 2}
+--- !u!114 &528712964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528712959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b0203796a8b2f4f8ff2ed8ec59adbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _applicationData: {fileID: 11400000, guid: e572d526070284240986c14245e2d135, type: 2}
+  _objectToDisable: {fileID: 0}
 --- !u!1 &563507009
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,6 +3287,7 @@ GameObject:
   - component: {fileID: 1421832669}
   - component: {fileID: 1421832671}
   - component: {fileID: 1421832670}
+  - component: {fileID: 1421832672}
   m_Layer: 5
   m_Name: Info Text (TMP)
   m_TagString: Untagged
@@ -3378,6 +3411,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421832668}
   m_CullTransparentMesh: 1
+--- !u!114 &1421832672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421832668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b398af73af7dd8249921010b5f252a6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onTextEnableRequest: {fileID: 11400000, guid: ff25c6995b13ff544b0219a57ac84204, type: 2}
+  _textData: {fileID: 11400000, guid: 1e9e27f8a776d6e408d06d3ecb7983ca, type: 2}
 --- !u!1 &1493803225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5132,6 +5179,8 @@ GameObject:
   - component: {fileID: 2106139307}
   - component: {fileID: 2106139309}
   - component: {fileID: 2106139308}
+  - component: {fileID: 2106139310}
+  - component: {fileID: 2106139311}
   m_Layer: 5
   m_Name: Registration Info Text (TMP)
   m_TagString: Untagged
@@ -5255,6 +5304,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106139306}
   m_CullTransparentMesh: 1
+--- !u!114 &2106139310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106139306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7690c788665e29c40877eafdce120420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onTextStateChange: {fileID: 11400000, guid: b29ee2a79c7602f45b3f00787112e0dd, type: 2}
+  _onTextCloseRequest: {fileID: 11400000, guid: ab4b8600f703246498db91a5d4f65fd8, type: 2}
+  _positiveText: {fileID: 11400000, guid: ad42e0042ec48a64d8744300fdfb4d16, type: 2}
+  _negativeText: {fileID: 11400000, guid: 5d3f7ca5eef849c418524ca500177c0a, type: 2}
+--- !u!114 &2106139311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106139306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b0203796a8b2f4f8ff2ed8ec59adbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _applicationData: {fileID: 11400000, guid: e572d526070284240986c14245e2d135, type: 2}
+  _objectToDisable: {fileID: 0}
 --- !u!1 &2131619860
 GameObject:
   m_ObjectHideFlags: 0
