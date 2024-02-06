@@ -1,61 +1,62 @@
-
 namespace MobileReg.Global
 {
-    using MobileReg.Data;
     using UnityEngine;
-    using System.Collections;
+    using UnityEngine.Networking;
+    using Newtonsoft.Json.Linq; 
     using System;
+    using System.Collections;
+    using MobileReg.Data;
+    using ScriptableEvents;
+
     public class IDAcquisition : MonoBehaviour
     {
         [SerializeField] SO_UrlInfo _urlInfo;
-        void Start()
-        {
+        [SerializeField] SO_BaseEvent<string> _onIDAcquired;
+        [SerializeField] SO_BaseEvent<bool> _onIDAcquisitionTextState;
+        public void StartAcquisition() {
             StartCoroutine(GetKeyFromServer());
         }
 
         IEnumerator GetKeyFromServer() {
-            using (WWW www = new WWW(_urlInfo.URL)) {
-                yield return www;
+            using (UnityWebRequest www = UnityWebRequest.Get(_urlInfo.URL)) {
+                yield return www.SendWebRequest();
 
-                if (string.IsNullOrEmpty(www.error)) {
-                    ProcessJSON(www.text);
+                if (www.result == UnityWebRequest.Result.Success) {
+                    ProcessJSON(www.downloadHandler.text);
                 }
                 else {
                     Debug.Log("Error: " + www.error);
+                    _onIDAcquisitionTextState.Invoke(false);
                 }
             }
         }
 
         void ProcessJSON(string jsonString){
             try {
-                // Разбираем JSON-ответ
-                JSONObject jsonObject = new JSONObject(jsonString);
+                // Разбираем JSON-ответ с помощью JSON.NET
+                JObject jsonObject = JObject.Parse(jsonString);
 
-                // Проверяем наличие ключа "Keys" в ответе
-                if (jsonObject.HasField("Keys"))
-                {
-                    JSONObject keysObject = jsonObject.GetField("Keys");
+                // Получаем массив ключей "Keys"
+                JArray keysArray = (JArray)jsonObject["Keys"];
 
-                    // Проверяем наличие массива ключей
-                    if (keysObject.IsArray)
-                    {
-                        foreach (JSONObject keyObject in keysObject.list)
-                        {
-                            // Получаем значение ключа "Key"
-                            string key = keyObject.GetField("Key").str;
+                // Перебираем элементы массива
+                foreach (JObject keyObject in keysArray.Children<JObject>()) {
 
-                            // Извлекаем "ID" из ключа "Key"
-                            string id = ExtractID(key);
+                    // Получаем значение ключа "Key"
+                    string key = keyObject["Key"].ToString();
+                    if(key == "No Key") continue;
+                    // Извлекаем "ID" из ключа "Key"
+                    string id = ExtractID(key);
 
-                            // Используем полученный "ID" для дальнейших действий
-                            Debug.Log("ID: " + id);
-                        }
-                    }
+                    _onIDAcquired.Invoke(id);
+                    _onIDAcquisitionTextState.Invoke(true);
+                    
+                    break;
                 }
             }
-            catch (Exception e)
-            {
+            catch (Exception e) {
                 Debug.Log("Error while processing JSON: " + e.Message);
+                _onIDAcquisitionTextState.Invoke(false);
             }
         }
 

@@ -17,7 +17,7 @@ namespace MobileReg.UI{
             _currentText.color = _textData.TextColor;    
         }
         private void TextEnableRequest(string text){
-            _currentText.gameObject.SetActive(true);
+            _currentText.enabled = true;
             _currentText.text = _textData.GetFullText(text);
         }
         private void OnEnable() {

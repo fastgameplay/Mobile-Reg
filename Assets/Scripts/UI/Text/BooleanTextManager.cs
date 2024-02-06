@@ -20,7 +20,7 @@ namespace MobileReg.UI{
         }
         
         private void OnTextStateChange(bool state){
-            _currentText.gameObject.SetActive(true);
+            _currentText.enabled = true;
             if(state){
                 _currentText.text = _positiveText.Text;
                 _currentText.color = _positiveText.TextColor;
@@ -30,7 +30,7 @@ namespace MobileReg.UI{
             }
         }
         private void OnTextCloseRequest(){
-            _currentText.gameObject.SetActive(false);
+            _currentText.enabled = false;
         }
         private void OnEnable() {
             _onTextStateChange += OnTextStateChange;
