@@ -56,7 +56,7 @@ namespace MobileReg.Global
         }
 
         private void ProcessCheckResponse(string response, string id, NumberInfo number) {
-            Debug.Log(response);
+            Debug.Log($"Респонс на чек: {response}");
             if (response.Equals("NoExist")) {
                 StartCoroutine(RegisterUser(id, number));
             }
@@ -66,7 +66,7 @@ namespace MobileReg.Global
         }
 
         private void ProcessRegisterResponse(string response) {
-            Debug.Log(response);
+            Debug.Log($"Респонс на регистрацию: {response}");
 
             bool registrationSuccess = response.Equals("RegOK");
 

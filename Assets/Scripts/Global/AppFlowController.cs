@@ -3,7 +3,8 @@ namespace MobileReg.Global
     using ScriptableEvents;
     using UnityEngine;
     public class AppFlowController : MonoBehaviour
-    {
+    {   
+        //Basically we can smoosh this into separate data file for designers to use
 
         [Header("References")]
         [SerializeField] GameObject _getIDTab;

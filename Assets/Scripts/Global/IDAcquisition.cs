@@ -47,7 +47,6 @@ namespace MobileReg.Global
                     if(key == "No Key") continue;
                     // Извлекаем "ID" из ключа "Key"
                     string id = ExtractID(key);
-
                     _onIDAcquired.Invoke(id);
                     _onIDAcquisitionTextState.Invoke(true);
                     
@@ -60,21 +59,17 @@ namespace MobileReg.Global
             }
         }
 
-        string ExtractID(string key)
-        {
+        private string ExtractID(string key) {
             string id = "";
 
-            // Извлекаем каждый второй символ из ключа "Key"
-            for (int i = 0; i < key.Length; i += 2)
-            {
+            for (int i = 0; i < key.Length; i += 2) {
                 id += key[i];
             }
-            Debug.Log(id);
-            
-            
-            Debug.Log(key);
-            return id;
+            //!Тут всё еще не понял если у сервера -ласт символ с ключа то должно работать Но не робит
+            return id; 
+            // return id.Substring(0, id.Length - 1);
         }
+
 
     }
     
